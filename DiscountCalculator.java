@@ -1,37 +1,23 @@
-/**
- * DiscountCalculator
- *
- * Calculates a discount percentage based on a customer's profile.
- *
- * Rules:
- *  1. Base discount        : 5%
- *  2. Newsletter subscriber: +2%
- *  3. Customer type bonus  : NEW → +0%, REGULAR → +3%, PREMIUM → +5%
- *  4. Loyalty bonus        : totalOrdersInLastYear >= 10 → +5%
- *  5. Infeasibility        : "NEW" + totalOrdersInLastYear >= 10 → IllegalArgumentException
- *  6. Cap                  : maximum total discount is 15%
- */
+
 public class DiscountCalculator {
 
     public enum CustomerType {
         NEW, REGULAR, PREMIUM
     }
 
-    /**
-     * Calculates the discount percentage for a customer.
-     *
-     * @param customerType           the type of the customer (NEW, REGULAR, PREMIUM)
-     * @param totalOrdersInLastYear  the number of orders placed in the last year (must be >= 0)
-     * @param isSubscribedToNewsletter whether the customer is subscribed to the newsletter
-     * @return the calculated discount percentage (0–15, inclusive)
-     * @throws IllegalArgumentException if a NEW customer has 10 or more orders in the last year,
-     *                                  or if totalOrdersInLastYear is negative
-     */
+   
+     
+     @param customerType           the type of the customer (NEW, REGULAR, PREMIUM)
+     @param totalOrdersInLastYear  the number of orders placed in the last year (must be >= 0)
+     @param isSubscribedToNewsletter whether the customer is subscribed to the newsletter
+     @return the calculated discount percentage (0–15, inclusive)
+     @throws IllegalArgumentException if a NEW customer has 10 or more orders in the last year,
+    
     public int calculateDiscount(CustomerType customerType,
                                  int totalOrdersInLastYear,
                                  boolean isSubscribedToNewsletter) {
 
-        // Guard: negative orders are not meaningful
+       
         if (totalOrdersInLastYear < 0) {
             throw new IllegalArgumentException(
                     "totalOrdersInLastYear cannot be negative, but was: " + totalOrdersInLastYear);
